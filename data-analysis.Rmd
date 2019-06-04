@@ -1,0 +1,39 @@
+---
+title: "Example of Data Analysis"
+author: "Welliton Souza"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+Based on [ShortRead](https://bioconductor.org/packages/release/bioc/html/ShortRead.html) vignette.
+
+```{r load-pkgs, message=FALSE}
+library(ShortRead)
+```
+
+## Inspect FASTQ file
+
+```{r load-fastq}
+fq <- readFastq("data/ERR127302_1_subset.fastq.gz")
+fq
+```
+
+```{r fq-subset}
+fq[1:5]
+```
+```{r head-reads}
+head(sread(fq), 3)
+```
+
+```{r head-qualities}
+head(quality(fq), 3)
+```
+
+## Quality assessment with ShortRead
+
+```{r qa-report}
+fls <- dir("data/", "*fastq.gz$", full=TRUE)
+qaSummary <- qa(fls, type="fastq")
+report(qaSummary, dest = "results")
+```
+

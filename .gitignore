@@ -1,0 +1,17 @@
+# Ignore RStudio user-related files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.rstudio
+kitematic
+
+# Ignore Cromwell files
+cromwell.jar
+cromwell-executions
+cromwell-workflow-logs
+cromwell-results
+
+# Ignore input and output files
+data
+results
