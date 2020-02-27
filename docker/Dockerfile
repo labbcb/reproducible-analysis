@@ -1,4 +1,4 @@
-FROM bioconductor/release_base2:R3.6.0_Bioc3.9
+FROM bioconductor/bioconductor_docker:RELEASE_3_10
 
 ADD install_packages.R /tmp/
 

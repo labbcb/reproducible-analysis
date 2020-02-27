@@ -34,7 +34,7 @@ Examples: input data, Cromwell and temporary files.
 
 ## Docker image for data analysis
 
-Use [rocker](https://hub.docker.com/u/rocker) or [Bioconductor](http://bioconductor.org/help/docker/) as base images to make your own Docker image containing all required packages and software libraries to run data analysis.
+Use [rocker](https://hub.docker.com/u/rocker) or [Bioconductor](https://bioconductor.org/help/docker/) as base images to make your own Docker image containing all required packages and software libraries to run data analysis.
 Keep Docker-related files separated from other files to reduce [Docker build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context).
 *Do not add data file to Docker image*.
 Tag your Docker image according to your analysis version.
@@ -42,7 +42,7 @@ Tag your Docker image according to your analysis version.
 Build Docker image:
 
 ```bash
-docker build -t reproducible-analysis:1.0.0 docker
+docker build -t reproducible-analysis:1.1.0 docker
 ```
 
 Run RStudio:
@@ -67,7 +67,7 @@ Compile RMarkdown file without running RStudio:
 docker container run \
   --rm \
   --volume $PWD:/home/rstudio \
-  --user `id -u`:`id -g`\
+  --user `id -u`:`id -g` \
   -w /home/rstudio \
   reproducible-analysis:1.0.0 \
   R -e "rmarkdown::render('data-analysis.Rmd')"
