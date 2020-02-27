@@ -6,6 +6,8 @@
 .rstudio
 kitematic
 
+.cache
+
 # Ignore Cromwell files
 cromwell.jar
 cromwell-executions

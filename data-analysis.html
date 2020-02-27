@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Welliton Souza" />
@@ -269,7 +269,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -331,6 +330,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -342,18 +342,6 @@ summary {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -376,7 +364,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Example of Data Analysis</h1>
 <h4 class="author">Welliton Souza</h4>
-<h4 class="date">04 June, 2019</h4>
+<h4 class="date">27 February, 2020</h4>
 
 </div>
 
@@ -395,24 +383,23 @@ fq</code></pre>
 <pre class="r"><code>head(sread(fq), 3)</code></pre>
 <pre><code>##   A DNAStringSet instance of length 3
 ##     width seq
-## [1]    72 GTCTGCTGTATCTGTGTCGGCTGTCTCGCGG...CAATGAAGGCCTGGAATGTCACTACCCCCAG
-## [2]    72 CTAGGGCAATCTTTGCAGCAATGAATGCCAA...GTGGCTTTTGAGGCCAGAGCAGACCTTCGGG
-## [3]    72 TGGGCTGTTCCTTCTCACTGTGGCCTGACTA...GCATTAAGAAAGAGTCACGTTTCCCAAGTCT</code></pre>
+## [1]    72 GTCTGCTGTATCTGTGTCGGCTGTCTCGCGGGAC...GTCAATGAAGGCCTGGAATGTCACTACCCCCAG
+## [2]    72 CTAGGGCAATCTTTGCAGCAATGAATGCCAATGG...CAGTGGCTTTTGAGGCCAGAGCAGACCTTCGGG
+## [3]    72 TGGGCTGTTCCTTCTCACTGTGGCCTGACTAAAA...TGGCATTAAGAAAGAGTCACGTTTCCCAAGTCT</code></pre>
 <pre class="r"><code>head(quality(fq), 3)</code></pre>
 <pre><code>## class: FastqQuality
 ## quality:
 ##   A BStringSet instance of length 3
 ##     width seq
-## [1]    72 HHHHHHHHHHHHHHHHHHHHEBDBB?B:BBG...FEFBDBD@DDECEE3&gt;:?;@@@&gt;?=BAB?##
-## [2]    72 IIIIHIIIGIIIIIIIHIIIIEGBGHIIIIH...IHIIIHIIIIIGIIIEGIIGBGE@DDGGGIG
-## [3]    72 GGHBHGBGGGHHHHDHHHHHHHHHFGHHHHH...HHHHHHGHFHHHHHHHHHHHHHH8AGDGGG&gt;</code></pre>
+## [1]    72 HHHHHHHHHHHHHHHHHHHHEBDBB?B:BBGG&lt;D...ABFEFBDBD@DDECEE3&gt;:?;@@@&gt;?=BAB?##
+## [2]    72 IIIIHIIIGIIIIIIIHIIIIEGBGHIIIIHGII...IIIHIIIHIIIIIGIIIEGIIGBGE@DDGGGIG
+## [3]    72 GGHBHGBGGGHHHHDHHHHHHHHHFGHHHHHHHH...HHHHHHHHGHFHHHHHHHHHHHHHH8AGDGGG&gt;</code></pre>
 </div>
 <div id="quality-assessment-with-shortread" class="section level2">
 <h2>Quality assessment with ShortRead</h2>
 <pre class="r"><code>fls &lt;- dir(&quot;data/&quot;, &quot;*fastq.gz$&quot;, full=TRUE)
 qaSummary &lt;- qa(fls, type=&quot;fastq&quot;)
 report(qaSummary, dest = &quot;results&quot;)</code></pre>
-<pre><code>## Warning in dir.create(dest, recursive = TRUE): 'results' already exists</code></pre>
 <pre><code>## [1] &quot;results/index.html&quot;</code></pre>
 </div>
 
@@ -433,6 +420,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
