@@ -56,7 +56,7 @@ docker container run \
   --publish 8787:8787 \
   -e USERID=`id -u` \
   -e GROUPID=`id -g`\
-  reproducible-analysis:1.0.0
+  reproducible-analysis:1.1.0
 ```
 
 > Replace `-e DISABLE_AUTH=true` with `-e PASSWORD=secret` to set a password.
@@ -69,7 +69,7 @@ docker container run \
   --volume $PWD:/home/rstudio \
   --user `id -u`:`id -g` \
   -w /home/rstudio \
-  reproducible-analysis:1.0.0 \
+  reproducible-analysis:1.1.0 \
   R -e "rmarkdown::render('data-analysis.Rmd')"
 ```
 
