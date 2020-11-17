@@ -1,5 +1,6 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_10
+FROM bioconductor/bioconductor_docker:RELEASE_3_12
 
-ADD install_packages.R /tmp/
+RUN install2.r tidyverse
 
-RUN R -f /tmp/install_packages.R
+ADD install_packages.R .
+RUN R -f install_packages.R

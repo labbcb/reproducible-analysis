@@ -20,16 +20,13 @@ In this example we use QA workflow available at <https://github.com/labbcb/workf
 Provide the command to execute the workflow.
 
 ```bash
-wget https://raw.githubusercontent.com/labbcb/workflows/master/workflows/qa/1.1/qa.wdl
-wget -O cromwell.jar https://github.com/broadinstitute/cromwell/releases/download/42/cromwell-42.jar
-java -jar cromwell.jar run --options options.json --inputs qa.inputs.json qa.wdl
+wget https://github.com/broadinstitute/cromwell/releases/download/54/cromwell-54.jar
+java -jar cromwell-54.jar run --options options.json --inputs inputs/qc.inputs.json workflows/qc.wdl
 ```
-
-> Replace `run` subcommand with `submit --host http://server:8000` to submit to Cromwell Server.
 
 ## Ignored files
 
-Use `.gitignore` file to skip downloaded or generated files that you do not want to share.
+Use `.gitignore` file to skip downloaded or generated files that you do not want to keep in the repository.
 Examples: input data, Cromwell and temporary files.
 
 ## Docker image for data analysis
@@ -59,6 +56,8 @@ docker container run \
   reproducible-analysis:1.1.0
 ```
 
+RStudio Server will be available at http://localhost:8787.
+
 > Replace `-e DISABLE_AUTH=true` with `-e PASSWORD=secret` to set a password.
 
 Compile RMarkdown file without running RStudio:
@@ -72,6 +71,19 @@ docker container run \
   reproducible-analysis:1.1.0 \
   R -e "rmarkdown::render('data-analysis.Rmd')"
 ```
+
+Using Docker compose.
+
+```bash
+docker-compose up
+```
+
+RStudio Server will be available at http://localhost:8787.
+
+> Add `--build` to force Docker to rebuild image.
+
+> Add `-d` to detach process from terminal. Run `docker-compose down` to stop service.
+
 
 ## Versioning
 

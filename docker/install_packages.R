@@ -1,4 +1,1 @@
-BiocManager::install(c(
-  "ShortRead",
-  "rmarkdown"
-), update=TRUE, ask=FALSE)
+BiocManager::install(c("ShortRead"), update=TRUE, ask=FALSE)

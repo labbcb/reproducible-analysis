@@ -21,6 +21,7 @@ fq
 ```{r fq-subset}
 fq[1:5]
 ```
+
 ```{r head-reads}
 head(sread(fq), 3)
 ```
@@ -37,3 +38,8 @@ qaSummary <- qa(fls, type="fastq")
 report(qaSummary, dest = "results")
 ```
 
+## Session information
+
+```{r session-info}
+sessionInfo()
+```

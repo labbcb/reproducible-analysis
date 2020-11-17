@@ -5,15 +5,13 @@
 .Ruserdata
 .rstudio
 kitematic
-
+.local
 .cache
 
 # Ignore Cromwell files
-cromwell.jar
+cromwell-*.jar
 cromwell-executions
 cromwell-workflow-logs
-cromwell-results
 
-# Ignore input and output files
-data
-results
+# Ignore FASTQ files in data dir
+data/*fastq.gz

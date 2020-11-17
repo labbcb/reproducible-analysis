@@ -1,8 +1,6 @@
 {
-  "QA.files": [
+  "QC.files": [
     "data/ERR127302_1_subset.fastq.gz",
     "data/ERR127302_2_subset.fastq.gz"
-  ],
-  "QA.groups": ["None", "None"],
-  "QA.Rqc.pair": [1, 1]
+  ]
 }
